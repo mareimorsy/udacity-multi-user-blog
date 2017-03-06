@@ -1,0 +1,40 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>Update post</h1>
+<hr>
+<form class="form-horizontal" action="/article/{{post.key.id()}}/edit" method="post">
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-1 control-label" for="subject">Subject :</label>
+	  <div class="col-md-11">
+	  <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control input-md" value="{{post.subject}}">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-1 control-label" for="content">Content :</label>
+	  <div class="col-md-11">
+	  <textarea rows="10" id="content" name="content" placeholder="Content" class="form-control input-md">{{post.content}}</textarea>
+	  </div>
+	</div>
+
+	<!-- Update Button -->
+	<div class="form-group">
+	  <div class="col-md-offset-1 col-md-11">
+	    <div class="row">
+	    	<div class="col-xs-6">
+	    		<button id="singlebutton" name="singlebutton" class="btn btn-primary full-width">Update Post</button>
+	    	</div>
+	    	<div class="col-xs-6">
+	    		<a href="{{back}}" class="btn btn-danger full-width" role="button">Cancel</a>
+	    	</div>
+	    </div>
+	  </div>
+
+	</div>
+
+</form>
+{% endblock %}

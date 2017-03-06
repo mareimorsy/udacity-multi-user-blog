@@ -1,0 +1,49 @@
+{# inherit master layout #}
+{% extends 'master.html' %}
+
+{# include cover section #}
+{% include 'cover.html' %}
+
+  {% block content %}
+
+    {# loop through posts #}
+    {% for post in posts %}
+      <div class="post-heading">
+
+          {# post subject #}
+          <h1 class="post-title">
+            <a class="post-link" href="{{ '/article/%s' % post.key.id() }}">{{ post.subject }}</a>
+          </h1>
+
+          {% if post.author == user.name %}
+          <div class="dropdown action-btn">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="article/{{post.key.id()}}/edit">Edit</a></li>
+              <li>
+                <a class="del-post-link" href="#">Delete</a>
+                <form class="critical-frm" method="post" action="article/{{post.key.id()}}/delete"></form>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+
+        {# post date #}
+        <label class="post-date">{{ post.humanDate() }}</label>
+
+      </div>
+
+      {# post content #}
+      <p class="lead post-content">{{ post.nl2br() }}</p>
+      <div class="author-container">
+        <span class="label label-warning author-txt">{{post.author}}</span>
+      </div>
+
+      <div class="post-spacer"></div>
+
+
+    {% endfor %}
+
+  {% endblock %}

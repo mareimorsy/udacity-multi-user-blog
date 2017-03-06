@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block content %}
+<h1>Add new post</h1>
+<hr>
+<form class="form-horizontal" action="newpost" method="post">
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-1 control-label" for="subject">Subject :</label>
+	  <div class="col-md-11">
+	  <input id="subject" name="subject" type="text" placeholder="Subject" class="form-control input-md">
+	  </div>
+	</div>
+
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-1 control-label" for="content">Content :</label>
+	  <div class="col-md-11">
+	  <textarea rows="10" id="content" name="content" placeholder="Content" class="form-control input-md"></textarea>
+	  </div>
+	</div>
+
+	<!-- Button -->
+	<div class="form-group">
+	  <div class="col-md-offset-1 col-md-11">
+	    <button id="singlebutton" name="singlebutton" class="btn btn-primary full-width">Add New Post</button>
+	  </div>
+	</div>
+
+</form>
+{% endblock %}
